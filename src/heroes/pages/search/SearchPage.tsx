@@ -9,7 +9,7 @@ import { useSearchParams } from "react-router"
 
 export const SearchPage = () => {
 
-  const [searchParams, setSearchParams] = useSearchParams()
+  const [ searchParams ] = useSearchParams()
 
   const name = searchParams.get('name')  || undefined;
   const strength = searchParams.get('strength')  || undefined;
