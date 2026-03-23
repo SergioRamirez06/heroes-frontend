@@ -1,4 +1,4 @@
-import { useMemo } from "react"
+import { use, useMemo } from "react"
 import { useSearchParams } from "react-router"
 import { Heart } from "lucide-react"
 
@@ -10,10 +10,13 @@ import { CustomPagination } from "@/components/custom/CustomPagination"
 import { CustomBreadcrumb } from "@/components/custom/CustomBreadcrumb"
 import { useHeroSummary } from "@/hooks/useHeroSummary"
 import { usePaginatedHero } from "@/hooks/usePaginatedHero"
+import { FavoriteHeroContext } from "@/context/FavoriteHeroContext"
 
 export const HomePage = () => {
 
   const [searchParams, setSearchParams ] = useSearchParams();
+  const { favoriteCount, favorite } = use( FavoriteHeroContext );
+  
     
   const activeTabs = searchParams.get('tab') ?? "all"
   const page = searchParams.get('page') ?? "1";
@@ -29,7 +32,6 @@ export const HomePage = () => {
 
   const { data: heroesResponse} = usePaginatedHero(+page, +limit, category);
   const { data: summary } = useHeroSummary();
-  console.log(heroesResponse);
   
   return (
       <>
@@ -70,7 +72,7 @@ export const HomePage = () => {
               })}
             >
               <Heart className="h-4 w-4" />
-              Favorites (3)
+              Favorites ({favoriteCount})
             </TabsTrigger>
 
             <TabsTrigger 
@@ -107,7 +109,7 @@ export const HomePage = () => {
 
           <TabsContent value="favorites">
             favoritos
-            <HeroGrid heroes={[]} />
+            <HeroGrid heroes={ favorite ?? [] } />
           </TabsContent>
           
           <TabsContent value="heroes">
@@ -123,7 +125,11 @@ export const HomePage = () => {
 
 
         {/* Pagination */}
-        <CustomPagination totalPage={heroesResponse?.pages ?? 1 }/>
+        {
+          selectTabs !== 'favorites' && (
+              <CustomPagination totalPage={heroesResponse?.pages ?? 1 }/>
+          )
+        }
 
       </>
   )

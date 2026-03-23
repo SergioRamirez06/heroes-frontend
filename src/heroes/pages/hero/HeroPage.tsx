@@ -146,7 +146,7 @@ export const HeroPage = () => {
                   </div>
                   <h3 className="font-semibold text-lg mb-2">Fuerza</h3>
                   <div className="text-3xl font-bold text-red-600 mb-2">{superheroData.strength}</div>
-                  <Progress value={superheroData.strength * 10} className="h-2" />
+                  <Progress value={superheroData.strength * 10} className="h-2" activeColor="bg-red-700"/>
                 </CardContent>
               </Card>
 
@@ -160,7 +160,7 @@ export const HeroPage = () => {
                   </div>
                   <h3 className="font-semibold text-lg mb-2">Inteligencia</h3>
                   <div className="text-3xl font-bold text-purple-600 mb-2">{superheroData.intelligence}</div>
-                  <Progress value={superheroData.intelligence * 10} className="h-2" />
+                  <Progress value={superheroData.intelligence * 10} className="h-2" activeColor="bg-purple-700"/>
                 </CardContent>
               </Card>
 
@@ -174,7 +174,7 @@ export const HeroPage = () => {
                   </div>
                   <h3 className="font-semibold text-lg mb-2">Velocidad</h3>
                   <div className="text-3xl font-bold text-yellow-600 mb-2">{superheroData.speed}</div>
-                  <Progress value={superheroData.speed * 10} className="h-2" />
+                  <Progress value={superheroData.speed * 10} className="h-2" activeColor="bg-yellow-600"/>
                 </CardContent>
               </Card>
 
@@ -188,7 +188,7 @@ export const HeroPage = () => {
                   </div>
                   <h3 className="font-semibold text-lg mb-2">Resistencia</h3>
                   <div className="text-3xl font-bold text-green-600 mb-2">{superheroData.durability}</div>
-                  <Progress value={superheroData.durability * 10} className="h-2" />
+                  <Progress value={superheroData.durability * 10} className="h-2" activeColor="bg-green-700"/>
                 </CardContent>
               </Card>
             </div>
@@ -203,28 +203,28 @@ export const HeroPage = () => {
                   <div className="flex items-center gap-4">
                     <div className="w-24 text-sm font-medium">Fuerza</div>
                     <div className="flex-1">
-                      <Progress value={superheroData.strength * 10} className="h-4" />
+                      <Progress value={superheroData.strength * 10} className="h-4" activeColor="bg-red-700"/>
                     </div>
                     <div className="w-12 text-right font-bold">{superheroData.strength}/10</div>
                   </div>
                   <div className="flex items-center gap-4">
                     <div className="w-24 text-sm font-medium">Inteligencia</div>
                     <div className="flex-1">
-                      <Progress value={superheroData.intelligence * 10} className="h-4" />
+                      <Progress value={superheroData.intelligence * 10} className="h-4"  activeColor="bg-purple-700"/>
                     </div>
                     <div className="w-12 text-right font-bold">{superheroData.intelligence}/10</div>
                   </div>
                   <div className="flex items-center gap-4">
                     <div className="w-24 text-sm font-medium">Velocidad</div>
                     <div className="flex-1">
-                      <Progress value={superheroData.speed * 10} className="h-4" />
+                      <Progress value={superheroData.speed * 10} className="h-4"  activeColor="bg-yellow-600"/>
                     </div>
                     <div className="w-12 text-right font-bold">{superheroData.speed}/10</div>
                   </div>
                   <div className="flex items-center gap-4">
                     <div className="w-24 text-sm font-medium">Resistencia</div>
                     <div className="flex-1">
-                      <Progress value={superheroData.durability * 10} className="h-4" />
+                      <Progress value={superheroData.durability * 10} className="h-4"  activeColor="bg-green-700" />
                     </div>
                     <div className="w-12 text-right font-bold">{superheroData.durability}/10</div>
                   </div>
